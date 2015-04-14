@@ -20,8 +20,12 @@ public class GUI {
 	static JFrame window = new JFrame();
 	static JLabel dlLabel = new JLabel("Download Usage (Gb): ");
 	static JLabel upLabel = new JLabel("Upload Usage (Gb): ");
+	static JLabel dlRateLabel = new JLabel("Download Rate (Gb/s)");
+	static JLabel upRateLabel = new JLabel("Upload Rate (Gb/s)");
 	static JTextField dlText = new JTextField();
 	static JTextField upText = new JTextField();
+	static JTextField dlRateText = new JTextField();
+	static JTextField upRateText = new JTextField();
 	public static TaskRunner taskObj = new TaskRunner();
 
 	
@@ -29,13 +33,24 @@ public class GUI {
 	{
 		//TODO
 		// Make GUI look nice.
-		JPanel panel1 = new JPanel(new GridLayout(2,1));
-		panel1.add(dlLabel);
-		panel1.add(upLabel);
-		JPanel textPanel = new JPanel(new GridLayout(2,1));
+		JPanel labelPanel = new JPanel(new GridLayout(4,1));
+		labelPanel.add(dlLabel);
+		labelPanel.add(upLabel);
+		labelPanel.add(dlRateLabel);
+		labelPanel.add(upRateLabel);
+		JPanel textPanel = new JPanel(new GridLayout(4,1));
 		textPanel.add(dlText);
 		textPanel.add(upText);
-		window.add(panel1);
+		textPanel.add(dlRateText);
+		textPanel.add(upRateText);
+		labelPanel.setBounds(0, 0, 150, 300);
+		textPanel.setBounds(150,0,150,300);
+		dlText.setEditable(false);
+		upText.setEditable(false);
+		dlRateText.setEditable(false);
+		upRateText.setEditable(false);
+		window.setLayout(new GridLayout(1,2));
+		window.add(labelPanel);
 		window.add(textPanel);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
@@ -45,13 +60,15 @@ public class GUI {
 	
 	public void update()
 	{
-		// TODO
-		// Update the GUI
 		System.out.println("Download (Gb): " + taskObj.download);
 		System.out.println("Upload(Gb): " + taskObj.upload);
 		System.out.println("Download Rate(Gb/s): " + taskObj.downloadRate);
 		System.out.println("Upload Rate(Gb/s): " + taskObj.uploadRate);
-
+		
+		dlText.setText(String.valueOf(taskObj.download));
+		upText.setText(String.valueOf(taskObj.upload));
+		dlRateText.setText(String.valueOf(taskObj.downloadRate));
+		upRateText.setText(String.valueOf(taskObj.uploadRate));
 	}
 	
 	public static void main(String[] args) {

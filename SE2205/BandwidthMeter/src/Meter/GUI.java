@@ -25,13 +25,13 @@ public class GUI {
 	static JLabel dlUsageLabel = new JLabel("Download Usage (GB): ");
 	static JLabel ulUsageLabel = new JLabel("Upload Usage (GB): ");
 	static JLabel dlRateLabel = new JLabel("Download Rate (GB/s)");
-	static JLabel upRateLabel = new JLabel("Upload Rate (GB/s)");
+	static JLabel ulRateLabel = new JLabel("Upload Rate (GB/s)");
 	
 	// Create JTextFields for displaying usage and rate.
-	static JTextField dlText = new JTextField();
-	static JTextField upText = new JTextField();
-	static JTextField dlRateText = new JTextField();
-	static JTextField upRateText = new JTextField();
+	static JLabel dlUsage = new JLabel();
+	static JLabel ulUsage = new JLabel();
+	static JLabel dlRate = new JLabel();
+	static JLabel ulRate = new JLabel();
 	
 	// Create TaskRunner to retrieve usage and rate data.
 	public static TaskRunner taskObj = new TaskRunner();
@@ -47,24 +47,20 @@ public class GUI {
 		labelPanel.add(dlUsageLabel);
 		labelPanel.add(ulUsageLabel);
 		labelPanel.add(dlRateLabel);
-		labelPanel.add(upRateLabel);
+		labelPanel.add(ulRateLabel);
 		
 		// Create text panel and add usage and rate data.
 		JPanel textPanel = new JPanel(new GridLayout(4,1));
-		textPanel.add(dlText);
-		textPanel.add(upText);
-		textPanel.add(dlRateText);
-		textPanel.add(upRateText);
+		textPanel.add(dlUsage);
+		textPanel.add(ulUsage);
+		textPanel.add(dlRate);
+		textPanel.add(ulRate);
 		
 		// Position label panel and text panel within GUI.
 		labelPanel.setBounds(0,0,150,300);
 		textPanel.setBounds(150,0,150,300);
 		
-		// Disable user interaction with GUI elements.
-		dlText.setEditable(false);
-		upText.setEditable(false);
-		dlRateText.setEditable(false);
-		upRateText.setEditable(false);
+		//dlText.setBorder(BorderFactory.createMatteBorder(1, 5, 1, 1, Color.RED));
 		
 		// Add panels to GUI.
 		window.setLayout(new GridLayout(1,2));
@@ -87,10 +83,10 @@ public class GUI {
 		System.out.println("Upload Rate(GB/s): " + taskObj.uploadRate);*/
 		
 		// Update usage and rate data every time update() is called.
-		dlText.setText(String.valueOf(taskObj.download));
-		upText.setText(String.valueOf(taskObj.upload));
-		dlRateText.setText(String.valueOf(taskObj.downloadRate));
-		upRateText.setText(String.valueOf(taskObj.uploadRate));
+		dlUsage.setText(String.valueOf(taskObj.download));
+		ulUsage.setText(String.valueOf(taskObj.upload));
+		dlRate.setText(String.valueOf(taskObj.downloadRate));
+		ulRate.setText(String.valueOf(taskObj.uploadRate));
 	}
 	
 	public static void main(String[] args) {

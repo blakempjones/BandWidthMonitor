@@ -60,7 +60,11 @@ public class GUI {
 		labelPanel.setBounds(0,0,150,300);
 		textPanel.setBounds(150,0,150,300);
 		
-		//dlText.setBorder(BorderFactory.createMatteBorder(1, 5, 1, 1, Color.RED));
+		// Add borders to textPanel elements.
+		dlUsage.setBorder(BorderFactory.createMatteBorder(1, 5, 1, 1, Color.RED));
+		ulUsage.setBorder(BorderFactory.createMatteBorder(1, 5, 1, 1, Color.BLUE));
+		dlRate.setBorder(BorderFactory.createMatteBorder(1, 5, 1, 1, Color.BLACK));
+		ulRate.setBorder(BorderFactory.createMatteBorder(1, 5, 1, 1, Color.GREEN));
 		
 		// Add panels to GUI.
 		window.setLayout(new GridLayout(1,2));

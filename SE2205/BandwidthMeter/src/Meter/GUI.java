@@ -1,6 +1,8 @@
 package Meter;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,6 +23,9 @@ public class GUI {
 	//TODO
 	// Make GUI look nice.
 	static JFrame window = new JFrame();
+	
+	// Create image icon.
+	public ImageIcon icon = new ImageIcon("/images/concrete_seamless.png");
 	
 	// Create JLabels.
 	static JLabel dlUsageLabel = new JLabel("Download Usage (GB): ");
@@ -42,6 +48,23 @@ public class GUI {
 		//TODO
 		// Make GUI look nice.
 		
+		
+		
+		//dlUsageLabel = new JLabel("Download Usage (GB): ");
+		//{
+		//      public void paintComponent(Graphics g) {
+		//          g.drawImage(icon.getImage(), 0, 0, null);
+		//          super.paintComponent(g);
+		//        }
+		//};
+		//dlUsageLabel.setOpaque(false);
+		
+		// Set the label's font size to the newly determined size.
+		dlUsageLabel.setFont(new Font("Sans-Serif", Font.BOLD, 14));
+		ulUsageLabel.setFont(new Font("Sans-Serif", Font.BOLD, 14));
+		dlRateLabel.setFont(new Font("Sans-Serif", Font.BOLD, 14));
+		ulRateLabel.setFont(new Font("Sans-Serif", Font.BOLD, 14));
+		
 		// Create label panel and add labels.
 		JPanel labelPanel = new JPanel(new GridLayout(4,1));
 		labelPanel.add(dlUsageLabel);
@@ -57,8 +80,8 @@ public class GUI {
 		textPanel.add(ulRate);
 		
 		// Position label panel and text panel within GUI.
-		labelPanel.setBounds(0,0,150,300);
-		textPanel.setBounds(150,0,150,300);
+		labelPanel.setBounds(0,0,200,300);
+		textPanel.setBounds(200,0,200,300);
 		
 		// Add borders to textPanel elements.
 		dlUsage.setBorder(BorderFactory.createMatteBorder(1, 5, 1, 1, Color.RED));
@@ -71,6 +94,7 @@ public class GUI {
 		window.add(labelPanel);
 		window.add(textPanel);
 		
+		// Show window and set close operations.
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setBounds(200,200,400,300);
@@ -105,9 +129,10 @@ public class GUI {
 				GUIObj.update();
 			}
 		};
+		
 		// Create timer and call update() every time TaskRunner refreshes.
 		Timer refreshTimer = new Timer(taskObj.refreshRate, timerTask);
-		refreshTimer.start();	
+		refreshTimer.start();
 	}
 
 }

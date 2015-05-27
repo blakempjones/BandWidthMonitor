@@ -98,6 +98,7 @@ public class GUI {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setBounds(200,200,400,300);
+		window.setTitle("Bandwitch Meter");
 		window.setVisible(true);
 	}
 	

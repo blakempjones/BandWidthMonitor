@@ -20,10 +20,10 @@ public class GUI {
 	static JFrame window = new JFrame();
 	
 	// Create JLabels.
-	static JLabel dlLabel = new JLabel("Download Usage (Gb): ");
-	static JLabel upLabel = new JLabel("Upload Usage (Gb): ");
-	static JLabel dlRateLabel = new JLabel("Download Rate (Gb/s)");
-	static JLabel upRateLabel = new JLabel("Upload Rate (Gb/s)");
+	static JLabel dlLabel = new JLabel("Download Usage (GB): ");
+	static JLabel upLabel = new JLabel("Upload Usage (GB): ");
+	static JLabel dlRateLabel = new JLabel("Download Rate (GB/s)");
+	static JLabel upRateLabel = new JLabel("Upload Rate (GB/s)");
 	
 	// Create JTextFields for displaying usage and rate.
 	static JTextField dlText = new JTextField();
@@ -71,7 +71,7 @@ public class GUI {
 		
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
-		window.setBounds(200,200,300,300);
+		window.setBounds(200,200,400,300);
 		window.setVisible(true);
 	}
 	
@@ -79,10 +79,10 @@ public class GUI {
 	{
 		// Check system output.
 		/*
-		System.out.println("Download (Gb): " + taskObj.download);
-		System.out.println("Upload(Gb): " + taskObj.upload);
-		System.out.println("Download Rate(Gb/s): " + taskObj.downloadRate);
-		System.out.println("Upload Rate(Gb/s): " + taskObj.uploadRate);*/
+		System.out.println("Download (GB): " + taskObj.download);
+		System.out.println("Upload(GB): " + taskObj.upload);
+		System.out.println("Download Rate(GB/s): " + taskObj.downloadRate);
+		System.out.println("Upload Rate(GB/s): " + taskObj.uploadRate);*/
 		
 		// Update usage and rate data every time update() is called.
 		dlText.setText(String.valueOf(taskObj.download));

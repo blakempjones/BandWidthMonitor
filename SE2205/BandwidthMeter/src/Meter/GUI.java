@@ -1,13 +1,15 @@
 package Meter;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import javax.swing.Timer;
 
+import javax.swing.BorderFactory;
+import javax.swing.Timer;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,8 +22,8 @@ public class GUI {
 	static JFrame window = new JFrame();
 	
 	// Create JLabels.
-	static JLabel dlLabel = new JLabel("Download Usage (GB): ");
-	static JLabel upLabel = new JLabel("Upload Usage (GB): ");
+	static JLabel dlUsageLabel = new JLabel("Download Usage (GB): ");
+	static JLabel ulUsageLabel = new JLabel("Upload Usage (GB): ");
 	static JLabel dlRateLabel = new JLabel("Download Rate (GB/s)");
 	static JLabel upRateLabel = new JLabel("Upload Rate (GB/s)");
 	
@@ -42,8 +44,8 @@ public class GUI {
 		
 		// Create label panel and add labels.
 		JPanel labelPanel = new JPanel(new GridLayout(4,1));
-		labelPanel.add(dlLabel);
-		labelPanel.add(upLabel);
+		labelPanel.add(dlUsageLabel);
+		labelPanel.add(ulUsageLabel);
 		labelPanel.add(dlRateLabel);
 		labelPanel.add(upRateLabel);
 		

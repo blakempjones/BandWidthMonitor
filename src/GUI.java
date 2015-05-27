@@ -6,9 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.print.DocFlavor.URL;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.Timer;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -83,7 +81,7 @@ public class GUI {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setBounds(200,200,400,300);
-		window.setTitle("Bandwidth Meter");
+		window.setTitle("Bandwidth Monitor");
 		window.setVisible(true);
 	}
 	

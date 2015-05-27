@@ -1,14 +1,10 @@
-package Meter;
+
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -16,7 +12,6 @@ import javax.swing.Timer;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class GUI {
 
@@ -24,20 +19,20 @@ public class GUI {
 	// Make GUI look nice.
 	static JFrame window = new JFrame();
 	
-	// Create image icon.
-	public ImageIcon icon = new ImageIcon("/images/concrete_seamless.png");
+	// Create background icon.
+	private ImageIcon icon = createImageIcon("seamless_concrete.png", "Background Icon");
 	
 	// Create JLabels.
-	static JLabel dlUsageLabel = new JLabel("Download Usage (GB): ");
-	static JLabel ulUsageLabel = new JLabel("Upload Usage (GB): ");
-	static JLabel dlRateLabel = new JLabel("Download Rate (KB/s):");
-	static JLabel ulRateLabel = new JLabel("Upload Rate (KB/s):");
+	private JLabel dlUsageLabel = new JLabel("Download Usage (GB): ", icon, JLabel.LEFT);
+	private JLabel ulUsageLabel = new JLabel("Upload Usage (GB): ", icon, JLabel.LEFT);
+	private JLabel dlRateLabel = new JLabel("Download Rate (KB/s): ", icon, JLabel.LEFT);
+	private JLabel ulRateLabel = new JLabel("Upload Rate (KB/s): ", icon, JLabel.LEFT);
 	
 	// Create JTextFields for displaying usage and rate.
-	static JLabel dlUsage = new JLabel();
-	static JLabel ulUsage = new JLabel();
-	static JLabel dlRate = new JLabel();
-	static JLabel ulRate = new JLabel();
+	private JLabel dlUsage = new JLabel();
+	private JLabel ulUsage = new JLabel();
+	private JLabel dlRate = new JLabel();
+	private JLabel ulRate = new JLabel();
 	
 	// Create TaskRunner to retrieve usage and rate data.
 	public static TaskRunner taskObj = new TaskRunner();
@@ -47,17 +42,6 @@ public class GUI {
 	{
 		//TODO
 		// Make GUI look nice.
-		
-		
-		
-		//dlUsageLabel = new JLabel("Download Usage (GB): ");
-		//{
-		//      public void paintComponent(Graphics g) {
-		//          g.drawImage(icon.getImage(), 0, 0, null);
-		//          super.paintComponent(g);
-		//        }
-		//};
-		//dlUsageLabel.setOpaque(false);
 		
 		// Set the label's font size to the newly determined size.
 		dlUsageLabel.setFont(new Font("Sans-Serif", Font.BOLD, 14));
@@ -100,6 +84,18 @@ public class GUI {
 		window.setBounds(200,200,400,300);
 		window.setTitle("Bandwitch Meter");
 		window.setVisible(true);
+	}
+	
+	/** Returns an ImageIcon, or null if the path was invalid. */
+	protected ImageIcon createImageIcon(String path,
+	                                           String description) {
+	    java.net.URL imgURL = getClass().getResource(path);
+	    if (imgURL != null) {
+	        return new ImageIcon(imgURL, description);
+	    } else {
+	        System.err.println("Couldn't find file: " + path);
+	        return null;
+	    }
 	}
 	
 	public void update()

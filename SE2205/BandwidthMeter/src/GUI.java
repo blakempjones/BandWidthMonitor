@@ -89,13 +89,6 @@ public class GUI {
 	
 	public void update()
 	{
-		// Check system output.
-		/*
-		System.out.println("Download (GB): " + taskObj.download);
-		System.out.println("Upload(GB): " + taskObj.upload);
-		System.out.println("Download Rate(GB/s): " + taskObj.downloadRate);
-		System.out.println("Upload Rate(GB/s): " + taskObj.uploadRate);*/
-		
 		// Update usage and rate data every time update() is called.
 		dlUsage.setText(String.valueOf(taskObj.download));
 		ulUsage.setText(String.valueOf(taskObj.upload));

@@ -30,8 +30,8 @@ public class GUI {
 	// Create JLabels.
 	static JLabel dlUsageLabel = new JLabel("Download Usage (GB): ");
 	static JLabel ulUsageLabel = new JLabel("Upload Usage (GB): ");
-	static JLabel dlRateLabel = new JLabel("Download Rate (GB/s)");
-	static JLabel ulRateLabel = new JLabel("Upload Rate (GB/s)");
+	static JLabel dlRateLabel = new JLabel("Download Rate (KB/s):");
+	static JLabel ulRateLabel = new JLabel("Upload Rate (KB/s):");
 	
 	// Create JTextFields for displaying usage and rate.
 	static JLabel dlUsage = new JLabel();
@@ -113,8 +113,8 @@ public class GUI {
 		// Update usage and rate data every time update() is called.
 		dlUsage.setText(String.valueOf(taskObj.download));
 		ulUsage.setText(String.valueOf(taskObj.upload));
-		dlRate.setText(String.valueOf(taskObj.downloadRate));
-		ulRate.setText(String.valueOf(taskObj.uploadRate));
+		dlRate.setText(String.valueOf(taskObj.downloadRate*1000000));
+		ulRate.setText(String.valueOf(taskObj.uploadRate*1000000));
 	}
 	
 	public static void main(String[] args) {

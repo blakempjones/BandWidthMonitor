@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.print.DocFlavor.URL;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
@@ -19,14 +20,11 @@ public class GUI {
 	// Make GUI look nice.
 	static JFrame window = new JFrame();
 	
-	// Create background icon.
-	private ImageIcon icon = createImageIcon("seamless_concrete.png", "Background Icon");
-	
 	// Create JLabels.
-	private JLabel dlUsageLabel = new JLabel("Download Usage (GB): ", icon, JLabel.LEFT);
-	private JLabel ulUsageLabel = new JLabel("Upload Usage (GB): ", icon, JLabel.LEFT);
-	private JLabel dlRateLabel = new JLabel("Download Rate (KB/s): ", icon, JLabel.LEFT);
-	private JLabel ulRateLabel = new JLabel("Upload Rate (KB/s): ", icon, JLabel.LEFT);
+	private JLabel dlUsageLabel = new JLabel("Download Usage (GB): ");
+	private JLabel ulUsageLabel = new JLabel("Upload Usage (GB): ");
+	private JLabel dlRateLabel = new JLabel("Download Rate (KB/s): ");
+	private JLabel ulRateLabel = new JLabel("Upload Rate (KB/s): ");
 	
 	// Create JTextFields for displaying usage and rate.
 	private JLabel dlUsage = new JLabel();
@@ -78,24 +76,15 @@ public class GUI {
 		window.add(labelPanel);
 		window.add(textPanel);
 		
+		// Make labelPanel background gray.
+		labelPanel.setBackground(Color.gray);
+		
 		// Show window and set close operations.
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setBounds(200,200,400,300);
-		window.setTitle("Bandwitch Meter");
+		window.setTitle("Bandwidth Meter");
 		window.setVisible(true);
-	}
-	
-	/** Returns an ImageIcon, or null if the path was invalid. */
-	protected ImageIcon createImageIcon(String path,
-	                                           String description) {
-	    java.net.URL imgURL = getClass().getResource(path);
-	    if (imgURL != null) {
-	        return new ImageIcon(imgURL, description);
-	    } else {
-	        System.err.println("Couldn't find file: " + path);
-	        return null;
-	    }
 	}
 	
 	public void update()
